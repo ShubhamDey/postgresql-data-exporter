@@ -27,7 +27,7 @@ public class CustomerController {
 	public void exportToExcel(HttpServletResponse response) throws IOException {
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
+        	String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=Customers_" + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
@@ -38,16 +38,15 @@ public class CustomerController {
 	
 	@GetMapping(path = "/pdf")
 	public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
-        response.setContentType("application/pdf");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=Customers_" + currentDateTime + ".pdf";
-        response.setHeader(headerKey, headerValue);
-        List<Customer> listUsers = service.listAll();
-        PDFGenerator exporter = new PDFGenerator(listUsers);
-        exporter.export(response);
-         
-    }
+        	response.setContentType("application/pdf");
+	        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        	String currentDateTime = dateFormatter.format(new Date());
+	        String headerKey = "Content-Disposition";
+	        String headerValue = "attachment; filename=Customers_" + currentDateTime + ".pdf";
+	        response.setHeader(headerKey, headerValue);
+	        List<Customer> listUsers = service.listAll();
+	        PDFGenerator exporter = new PDFGenerator(listUsers);
+	        exporter.export(response);
+    	}
 	
 }
