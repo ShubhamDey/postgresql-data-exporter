@@ -45,8 +45,8 @@ public class CustomerController {
 	        String headerValue = "attachment; filename=Customers_" + currentDateTime + ".pdf";
 	        response.setHeader(headerKey, headerValue);
 	        List<Customer> listUsers = service.listAll();
-	        PDFGenerator exporter = new PDFGenerator(listUsers);
-	        exporter.export(response);
+	        PDFGenerator pdfGenerator = new PDFGenerator(listUsers);
+	        pdfGenerator.export(response);
     	}
 	
 }
