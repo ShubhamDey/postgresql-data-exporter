@@ -14,6 +14,7 @@ public class CustomerService {
 	private CustomerRepository repo;
 	
 	public List<Customer> listAll(){
+		//Business logic should be here, not in controller
 		return repo.findAll();
 	}
 	
