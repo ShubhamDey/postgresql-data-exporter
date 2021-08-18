@@ -14,6 +14,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Generating build...'
+                script {
+                    
+                }
             }
         }
         stage('Deploy') {
